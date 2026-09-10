@@ -5,7 +5,7 @@
   "scripts": {
   "dev": "tsx watch src/server.ts",
   "postinstall": "prisma generate",
-  "start": "prisma migrate resolve --rolled-back 20260903133917_change_product_quantity_default && prisma migrate deploy && tsx src/server.ts"
+  "start": "prisma migrate resolve --rolled-back 20260904063908_make_user_email_unique && prisma migrate deploy && tsx src/server.ts"
 },
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.10.0",
