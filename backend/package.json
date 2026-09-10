@@ -6,20 +6,25 @@
     "dev": "tsx watch src/server.ts",
     "start": "tsx src/server.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
+    "@prisma/client": "file:...",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
+    "cors": "file:...",
     "dotenv": "^17.4.2",
+    "express": "file:...",
     "jsonwebtoken": "^9.0.3",
-    "tsx": "^4.23.13"
+    "tsx": "^4.23.13",
+    "zod": "file:..."
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
     "@types/cookie-parser": "^1.4.10",
-    "@types/jsonwebtoken": "^9.0.10"
+    "@types/cors": "file:...",
+    "@types/express": "file:...",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "file:...",
+    "prisma": "file:...",
+    "typescript": "file:..."
   }
 }
