@@ -1,5 +1,5 @@
 -- AlterTable
-ALTER TABLE `product` ADD COLUMN `server` VARCHAR(191) NOT NULL DEFAULT 'unknown';
+ALTER TABLE `Product` ADD COLUMN `server` VARCHAR(191) NOT NULL DEFAULT 'unknown';
 
 -- CreateTable
 CREATE TABLE `Cart` (

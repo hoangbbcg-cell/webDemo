@@ -5,7 +5,8 @@
 
 */
 -- AlterTable
-ALTER TABLE `productcredential` MODIFY `userId` INTEGER NULL;
+ALTER TABLE `ProductCredential`
+MODIFY `userId` INTEGER NULL;
 
 -- CreateIndex
 CREATE UNIQUE INDEX `ProductCredential_productId_key` ON `ProductCredential`(`productId`);
