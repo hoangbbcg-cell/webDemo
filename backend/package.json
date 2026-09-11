@@ -2,20 +2,29 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "src/server.ts",
- "scripts": {
-  "dev": "tsx watch src/server.ts",
-  "postinstall": "prisma generate",
-  "start": "prisma migrate deploy && tsx src/server.ts"
-},
+  "engines": {
+    "node": "^22.12.0 || ^24.0.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "prisma:generate": "prisma generate --config prisma7.config.ts",
+    "prisma:validate": "prisma validate --config prisma7.config.ts",
+    "migrate:deploy": "prisma migrate deploy --config prisma7.config.ts",
+    "migrate:status": "prisma migrate status --config prisma7.config.ts",
+    "postinstall": "npm run prisma:generate",
+    "build": "npm run prisma:generate && tsc --noEmit",
+    "start": "npm run migrate:deploy && tsx src/server.ts"
+  },
   "dependencies": {
-    "@prisma/adapter-mariadb": "^7.10.0",
-    "@prisma/client": "^7.10.0",
+    "@prisma/adapter-mariadb": "7.10.0",
+    "@prisma/client": "7.10.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "prisma": "7.10.0",
     "tsx": "^4.23.13",
     "zod": "^4.6.1"
   },
@@ -26,7 +35,6 @@
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^22.20.2",
-    "prisma": "^7.10.0",
     "typescript": "^7.0.2"
   }
 }

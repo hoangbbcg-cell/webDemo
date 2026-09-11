@@ -3,13 +3,14 @@ import "dotenv/config"
 import { PrismaMariaDb } from "@prisma/adapter-mariadb"
 import { PrismaClient } from "../../generated/prisma/client"
 
-const adapter = new PrismaMariaDb({
-  host: process.env.MYSQLHOST!,
-  port: Number(process.env.MYSQLPORT!),
-  user: process.env.MYSQLUSER!,
-  password: process.env.MYSQLPASSWORD!,
-  database: process.env.MYSQLDATABASE!,
-})
+const databaseUrl = process.env.DATABASE_URL
+
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL is required")
+}
+
+// Prisma uses mysql://; the MariaDB driver's URL parser expects mariadb://.
+const adapter = new PrismaMariaDb(databaseUrl.replace(/^mysql:/, "mariadb:"))
 
 export const prisma = new PrismaClient({
   adapter,

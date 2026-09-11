@@ -9,8 +9,8 @@ export const getCsrfTokenController = (
 
   res.cookie("csrfToken", csrfToken, {
     httpOnly: true,
-    sameSite: "lax",
-    secure: false,
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    secure: process.env.NODE_ENV === "production",
   })
 
   return res.status(200).json({

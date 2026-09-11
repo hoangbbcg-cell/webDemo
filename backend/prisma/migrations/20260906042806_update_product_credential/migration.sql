@@ -20,7 +20,7 @@ DROP FOREIGN KEY `ProductCredential_productId_fkey`;
 DROP INDEX `order_items_product_id_fkey` ON `order_items`;
 
 -- DropIndex
-DROP INDEX `ProductCredential_productId_key` ON `productcredential`;
+DROP INDEX `ProductCredential_productId_key` ON `ProductCredential`;
 
 -- AlterTable
 ALTER TABLE `order_items`

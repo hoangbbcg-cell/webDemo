@@ -16,7 +16,7 @@ const app = express()
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     credentials: true
   })
 )
@@ -38,6 +38,8 @@ app.use("/api/purchased-products", purchasedProductRoutes)
 
 app.use(errorHandler)
 
-app.listen(4000, () => {
-  console.log("Server running at http://localhost:4000")
+const port = Number(process.env.PORT || 4000)
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server listening on port ${port}`)
 })
