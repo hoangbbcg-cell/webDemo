@@ -16,7 +16,7 @@ let isRefreshing = false;
 let refreshPromise: Promise<RefreshResponse> | null = null;
 
 export const apiClient = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://webdemo-production-1ec5.up.railway.app",
   withCredentials: true,
 });
 
